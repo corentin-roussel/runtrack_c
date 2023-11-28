@@ -36,3 +36,12 @@ int my_strcmp(const char *s1, const char *s2)
     }
     return num;
 }
+
+int main(int argc, char **argv)
+{
+    printf("%d\n",my_strcmp("hello","world"));
+    printf("%d\n",my_strcmp("hello","how"));
+    printf("%d\n",my_strcmp("hello","bean"));
+    printf("%d\n",my_strcmp("hello","are"));
+
+}
