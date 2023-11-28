@@ -15,8 +15,6 @@ int length(char *str)
 
 char *my_strcopy(char *dest, const char *src)
 {
-    if(dest == NULL) return NULL;
-
     char *return_ptr = dest;
 
     while(*src != '\0')
