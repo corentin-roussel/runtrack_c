@@ -51,19 +51,23 @@ int my_strcmp(const char *s1, const char *s2)
 char **sort(char **strs)
 {
     int i = 0;
+    int j = 0;
 
     while(strs[i+1] != 0)
     {
-        if(my_strcmp(strs[i], strs[i+1]) < 0)
-        {
-            char *temp = strs[i];
-            strs[i] = strs[i+1];
-            strs[i+1] = temp;
-            i++;
-        }else {
-            i++;
-        }
 
+        while(strs[j+1] != 0)
+        {
+            if(my_strcmp(strs[j], strs[j+1]) > 0)
+            {
+                char *temp = strs[j];
+                strs[j] = strs[j+1];
+                strs[j+1] = temp;
+            }
+            j++;
+        }
+        j=0;
+        i++;
     }
     return strs;
 }
@@ -80,19 +84,22 @@ int main(int argc, char **argv)
     }
 
     grid[0] = "hello";
-    grid[1] = "world";
-    grid[2] = "to";
-    grid[3] = "are";
-    grid[4] = "bean";
-    grid[5] = 0;
+    grid[1] = "nyan";
+    grid[2] = "every";
+    grid[3] = "how";
+    grid[4] = "are";
+    grid[5] = "better";
+    grid[6] = 0;
 
-    char **sorted = sort(grid);
+    int x= 0;
+
+     grid[i] = sort(grid);
 
     int j =0;
 
-    while(sorted[j] != 0)
+    while(grid[j] != 0)
     {
-        printf("%s\n", sorted[j]);
+        printf("%s\n", grid[j]);
         j++;
     }
 
