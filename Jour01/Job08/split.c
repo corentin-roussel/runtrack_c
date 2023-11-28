@@ -3,6 +3,8 @@
 //
 
 #include <stdlib.h>
+#include <stdio.h>
+
 
 int blank(char src)
 {
@@ -28,32 +30,33 @@ int blank(char src)
     return 1;
 }
 
-char **split(char *str)
+
+char **split(char *src)
 {
-    int i = 0;
-    int j = 0;
-    char copy[10][50];
 
-    while(*str)
+    char **copy;
+    char *word;
+    while(*src)
     {
-        while(!blank(*str))
+        while(!blank(*src))
         {
-            copy[j][i] = '\0';
-            str++;
-            i = 0;
-            j++;
+            src++;
         }
-        copy[j][i] = *str;
-
-        i++;
-        str++;
+        *word = *src;
+        src++;
     }
-return copy;
+    **copy = word;
+    *word;
+
+    return copy;
 }
 
 int main(int argc, char **argv)
 {
-    char *str =  "Salut a tous";
+    char *src = "Salut a tous";
 
-    split(str);
+    char **splitted = split(src);
+
+    printf("%s", *splitted);
+
 }
