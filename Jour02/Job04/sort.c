@@ -55,7 +55,6 @@ char **sort(char **strs)
 
     while(strs[i+1] != 0)
     {
-
         while(strs[j+1] != 0)
         {
             if(my_strcmp(strs[j], strs[j+1]) > 0)
@@ -93,6 +92,7 @@ int main(int argc, char **argv)
 
 
     char **sorted = sort(grid);
+
 
     int j =0;
 

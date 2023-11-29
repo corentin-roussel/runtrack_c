@@ -52,8 +52,6 @@ char **array_clone(char **strs, int n)
 
     while(i != n)
     {
-        strs[i];
-
         grid[i] = my_strdup(strs[i]);
         i++;
     }
