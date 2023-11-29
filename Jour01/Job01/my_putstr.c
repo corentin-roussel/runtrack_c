@@ -9,7 +9,7 @@ void my_putchar(char c)
     write(1, &c, 1);
 }
 
-void my_pustr(char *str)
+void my_putstr(char *str)
 {
     int i = 0;
 
@@ -20,8 +20,3 @@ void my_pustr(char *str)
     }
 }
 
-int main (int argc, char **argv)
-{
-    my_pustr("Hello World!");
-    return 0;
-}
