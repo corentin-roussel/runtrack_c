@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 int blank(char src)
 {
     if(src == '\n')
@@ -34,19 +33,33 @@ int blank(char src)
 char **split(char *src)
 {
 
-    char **copy;
-    char *word;
+    char **copy = malloc(sizeof(char*) *10);
+
+    int x = 0;
+    while(x < 9)
+    {
+        copy[x] = malloc(sizeof(char) *10);
+        x++;
+    }
+
+    int i = 0;
+    int j = 0;
     while(*src)
     {
+        if(!blank(*src))
+        {
+            copy[i][j] = '\0';
+            i++;
+        }
         while(!blank(*src))
         {
             src++;
         }
-        *word = *src;
+        copy[i][j] = *src;
         src++;
+        j++;
+
     }
-    **copy = word;
-    *word;
 
     return copy;
 }
@@ -57,6 +70,14 @@ int main(int argc, char **argv)
 
     char **splitted = split(src);
 
-    printf("%s", *splitted);
+    int i = 0;
+    while(i < 3)
+    {
+        printf("%s\n", splitted[i]);
+        i++;
+        free(splitted[i]);
+    }
 
+
+    return 0;
 }

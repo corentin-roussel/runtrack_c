@@ -55,7 +55,6 @@ char **sort(char **strs)
 
     while(strs[i+1] != 0)
     {
-
         while(strs[j+1] != 0)
         {
             if(my_strcmp(strs[j], strs[j+1]) > 0)
@@ -93,13 +92,13 @@ int main(int argc, char **argv)
 
     int x= 0;
 
-     grid[i] = sort(grid);
+     char **sorted = sort(grid);
 
     int j =0;
 
-    while(grid[j] != 0)
+    while(sorted[j] != 0)
     {
-        printf("%s\n", grid[j]);
+        printf("%s\n", sorted[j]);
         j++;
     }
 
