@@ -6,13 +6,24 @@
 
 int power(int num, int power)
 {
-    int i = 0;
+    if(num == 0)
+    {
+        return 0;
+    }
+    if(num == 1)
+    {
+        return 1;
+    }
+    if(power == 1)
+    {
+        return num;
+    }
     int result = 1;
 
-    while(i<power)
+    while(power)
     {
         result = result * num;
-        i++;
+        power--;
     }
     return result;
 }
