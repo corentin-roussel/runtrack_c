@@ -33,39 +33,42 @@ int blank(char src)
 char **split(char *src)
 {
 
-    char **copy = malloc(sizeof(char*) *10);
 
-    int x = 0;
-    while(x < 9)
-    {
-        copy[x] = malloc(sizeof(char) *10);
-        x++;
-    }
+
+    char **copy = malloc(sizeof(char*) * 4);
 
     int i = 0;
-    int j = 0;
     while(*src)
     {
-        if(!blank(*src))
-        {
-            copy[i][j] = '\0';
-            i++;
-        }
-        while(!blank(*src))
+
+        int j = 0;
+
+        while(*src && !blank(*src))
         {
             src++;
         }
-        copy[i][j] = *src;
-        src++;
-        j++;
-
+        while(*src && blank(*src)) {
+            src++;
+            j++;
+        }
+        copy[i] = malloc(sizeof(char) * j + 1);
+        int tmp = j;
+        while (j >= 0) {
+            copy[i][j] = *src--;
+            j--;
+        }
+        copy[i][tmp] = 0;
+        i++;
+        src += tmp+1;
     }
-
+    copy[i] = 0;
     return copy;
 }
 
 int main(int argc, char **argv)
 {
+    (void)argc;
+    (void)argv;
     char *src = "Salut a tous";
 
     char **splitted = split(src);
@@ -74,9 +77,10 @@ int main(int argc, char **argv)
     while(i < 3)
     {
         printf("%s\n", splitted[i]);
-        i++;
         free(splitted[i]);
+        i++;
     }
+    free(splitted);
 
 
     return 0;
