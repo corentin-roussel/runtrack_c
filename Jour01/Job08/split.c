@@ -3,7 +3,7 @@
 //
 
 #include <stdlib.h>
-#include <stdio.h>
+
 
 int blank(char src)
 {
@@ -63,25 +63,4 @@ char **split(char *src)
     }
     copy[i] = 0;
     return copy;
-}
-
-int main(int argc, char **argv)
-{
-    (void)argc;
-    (void)argv;
-    char *src = "Salut a tous";
-
-    char **splitted = split(src);
-
-    int i = 0;
-    while(i < 3)
-    {
-        printf("%s\n", splitted[i]);
-        free(splitted[i]);
-        i++;
-    }
-    free(splitted);
-
-
-    return 0;
 }
