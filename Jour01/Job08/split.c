@@ -3,51 +3,53 @@
 //
 
 #include <stdlib.h>
-
+#include <stdio.h>
 
 int blank(char src)
 {
-    if(src == '\n')
+    if(src == '\n' || src == '\t' || src == '\v' || src == '\f' || src == '\r' || src == ' ' || src == '\0')
     {
-        return 0;
-    }else if(src == '\t')
-    {
-        return 0;
-    }else if(src == '\v')
-    {
-        return 0;
-    }else if(src == '\f')
-    {
-        return 0;
-    }else if(src == '\r')
-    {
-        return 0;
-    }else if(src == ' ')
-    {
-        return 0;
+        return 1;
     }
-    return 1;
+    return 0;
 }
 
 
+int word_counter(char *str)
+{
+    int i = 0;
+    int count = 0;
+
+    while(str[i] != 0)
+    {
+        if(str[i] != 0 && !blank(str[i]))
+        {
+            if(str[i] && !blank(str[i]) && blank(str[i+1]))
+            {
+                count++;
+            }
+        }
+        char src = str[i];
+        char src1 = str[i+1];
+        i++;
+    }
+    return count;
+}
+
 char **split(char *src)
 {
+    int count_word = word_counter(src);
 
-
-
-    char **copy = malloc(sizeof(char*) * 4);
-
+    char **copy = malloc(sizeof(char*) * count_word +1);
     int i = 0;
     while(*src)
     {
-
         int j = 0;
-
-        while(*src && !blank(*src))
+        while(*src && blank(*src))
         {
             src++;
         }
-        while(*src && blank(*src)) {
+        while(*src && !blank(*src)) {
             src++;
             j++;
         }
