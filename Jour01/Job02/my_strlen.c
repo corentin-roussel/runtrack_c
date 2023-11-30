@@ -15,11 +15,3 @@ int my_strlen(char *str)
     }
     return i;
 }
-
-int main (int argc, char **argv)
-{
-
-    int len = my_strlen("Hello World!");
-
-    return 0;
-}

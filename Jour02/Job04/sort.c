@@ -73,7 +73,7 @@ char **sort(char **strs)
 
 int main(int argc, char **argv)
 {
-    char **grid = malloc(sizeof(char*) *6);
+    char **grid = malloc(sizeof(char*) *7);
 
     int i = 0;
     while(i <9)
@@ -90,9 +90,9 @@ int main(int argc, char **argv)
     grid[5] = "better";
     grid[6] = 0;
 
-    int x= 0;
 
-     char **sorted = sort(grid);
+    char **sorted = sort(grid);
+
 
     int j =0;
 

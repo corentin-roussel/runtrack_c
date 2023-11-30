@@ -31,7 +31,7 @@ int *number_array(int num)
 {
     int i =0;
     int len = num_length(num);
-    int *numberArray;
+    int *numberArray = malloc(sizeof(int) *len);
 
     while (i<len)
     {
@@ -47,7 +47,7 @@ char *reverse_string(char *str)
 {
     int i = 0;
     int len = length(str);
-    char *temp;
+    char *temp = malloc(sizeof(char));
 
     while(i < len/2)
     {
@@ -56,6 +56,7 @@ char *reverse_string(char *str)
         str[len-i-1] = *temp;
         i++;
     }
+    free(temp);
 
     return str;
 
@@ -78,15 +79,4 @@ char *my_itoa(int num)
     char *reversed = reverse_string(str);
 
     return reversed;
-}
-
-int main()
-{
-    int num = 123;
-
-    char *string = my_itoa(num);
-
-    printf("%s", string);
-
-    return 0;
 }
